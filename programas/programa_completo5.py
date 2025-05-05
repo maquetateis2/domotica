@@ -2,6 +2,7 @@
 Autor: Carla Tresandí Otero
 Data: 05/05/2025
 """
+
 from microbit import *
 import neopixel
 
