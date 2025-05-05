@@ -1,9 +1,6 @@
 """Programa 4 da fila 2 para a maqueta domótica. 
 Autores: Sara Aguado Pedrido
-Data: 30/04/2025
-"""
-
-
+Data: 30/04/2025"""
 
 from microbit import*
  
