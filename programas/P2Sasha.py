@@ -1,7 +1,6 @@
 "Programa 2: Control de luz en la casa"
 "Autor: Dementiev Oleksasndr"
 "Data: 30/04/2025"
-
 from microbit import *
 
 led = pin14
