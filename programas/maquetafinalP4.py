@@ -3,7 +3,8 @@ Autores: Sara Aguado Pedrido
 Data: 30/04/2025"""
 
 from microbit import*
- 
+ pin2_set_analog_period(20)
+ pin2.writte_analog(1)
  servo1 = pin2
  angulos = 1
  
