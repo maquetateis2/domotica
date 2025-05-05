@@ -1,3 +1,7 @@
+"""Programa 5 da fila 2 para a maqueta domótica. 
+Autor: Carla Tresandí Otero
+Data: 05/05/2025
+"""
 from microbit import *
 import neopixel
 
