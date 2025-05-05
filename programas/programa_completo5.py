@@ -5,12 +5,6 @@ np = neopixel.neoPixel(pin13, 1)
 led_blanco = pin14
 sensor_pir = pin15
 
-
-def alerta():
-    music.play(music.RINGTONE)
-    sleep(500)
-    music.play(music.RINGTONE)
-
     for _ in range(5):
         np[0] = (255, 0, 0)
         np.show()
@@ -25,7 +19,9 @@ def alerta():
         
 while True:
     if sensor_pir.read_digital() == 1:
-        alerta()
+     music.play(music.RINGTONE)
+     sleep(500)
+     music.play(music.RINGTONE)()
     else:
         display.show(Image.HOUSE)
     sleep(100)
