@@ -3,9 +3,9 @@ Autores: Sara Aguado Pedrido
 Data: 30/04/2025"""
 
 from microbit import*
- pin2_set_analog_period(20)
- pin2.writte_analog(1)
- servo1 = pin2
+ pin2_set_analog_period(20) # Declaramos que e pin 2 es analógico
+ pin2.writte_analog(1) # Servo a 1º para comenzar coa porta pechada
+ 
  angulos = 1
  
  while True :
