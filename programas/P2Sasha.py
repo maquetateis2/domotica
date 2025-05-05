@@ -8,7 +8,7 @@ led = pin14
 while True:
     luz = pin1.read_analog()
 
-    if luz < 700:
+    if luz < 700: 
         led.write_digital(1)
 
     else:
