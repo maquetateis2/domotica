@@ -6,12 +6,12 @@ from microbit import*
  pin2_set_analog_period(20) # Declaramos que e pin 2 es analógico
  pin2.writte_analog(1) # Servo a 1º para comenzar coa porta pechada
  
- angulos = 1
+ angulos = 0
  
  while True :
      if butto_b.is_pressed():
          angulo +=10
-         servo.write_analog(angulo)
+         servo.write_analog(angulos)
          if angulo >= 90:
              angulo = 1
-             servo write_analog(angulo)
+             servo write_analog(angulos)
