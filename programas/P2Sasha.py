@@ -2,11 +2,11 @@
 "Autor: Dementiev Oleksasndr"
 "Data: 30/04/2025"
 
-from microbit import *
+from microbit import * # importamos libreria
 
-led = pin14
+led = pin14 # conectamos a pin
 
-while True:
+while True: # para siempre
     luz = pin1.read_analog()
 
     if luz < 700:
