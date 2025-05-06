@@ -7,10 +7,15 @@ from microbit import*
  pin2.write_analog(1) # Servo a 1º para comenzar coa porta pechada
  pin2.write_analog(90)
  angulos = 0
+ led = pin14
  
  while True :
      if button_b.is_pressed():
-         angulo +=10
+        led.writte(1)
+        
+        
+         
+         
          servo.write_analog(angulos)
      if angulo >= 90:
         angulo = 1
