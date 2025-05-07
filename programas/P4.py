@@ -3,21 +3,24 @@ Autores: Sara Aguado Pedrido
 Data: 30/04/2025"""
 
 from microbit import*
- pin2.set_analog_period(20) # Declaramos que e pin 2 es analógico
- pin2.write_analog(1) # Servo a 1º para comenzar coa porta pechada
+ pin2.set_analog_period(20) # Servo coenctado al pin 2
+ pin2.write_analog(1) 
  pin2.write_analog(90)
- angulos = 0
- led = pin14
+ porta = 0 
  
  while True :
      if button_b.is_pressed():
-        led.writte(1)
+      if porta == 0
+         pin2.write_analog(90)
+         porta=1
+      else
+         pin2.write_analog(1)
+         porta=0
+
+     sleep(100)
+  
+       
         
         
          
-         
-         servo.write_analog(angulos)
-     if angulo >= 90:
-        angulo = 1
-        servo write_analog(angulos)
-sleep(1000)
+       
