@@ -56,3 +56,14 @@ while True: # facemos que trabaja siempre
         led.write_digital(0) # lo apagamos
 
     sleep(1000)
+
+servo1 = pin2
+ angulos = 0
+ 
+ while True :
+     if butto_b.is_pressed():
+         angulo +=10
+         servo.write_analog(angulo)
+         if angulo >= 90:
+             angulo = 0
+             servo write_analog(angulo)
