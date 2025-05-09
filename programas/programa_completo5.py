@@ -16,7 +16,7 @@ while True:                           # Bucle infinito
      sleep(500)     
      music.play(music.RINGTONE)
         
-    for i in range(5):               # Repite 5 veceso seguinte bloque
+     for i in range(5):               # Repite 5 veceso seguinte bloque
         np[0] = (0, 255, 0)          # Acende o LED NeoPixel en vermello
         np[1] = (0, 255, 0)
         np.show()                    # Mostra o cambio do color no LED
