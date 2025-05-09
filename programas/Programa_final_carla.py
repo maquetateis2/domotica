@@ -1,4 +1,4 @@
-"""Programa que acende leds en vermello se a temperatura pasa de 20º
+"""Programa final da fila 2
 Autor: Carla Tresandí
 Data: 06/05/2025"""
 
