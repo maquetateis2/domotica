@@ -7,6 +7,7 @@ import neopixel
 
 np = neopixel.NeoPixel(pin13, 2)  # 2 LED neopixel conectados ao pin 13
 led = pin14     # LED branco conectado ao pin 14
+luz = pin1.read_analog()     # Sensor de luz conecrtado ao pin 1
 np.clear()
 
 while True:
@@ -24,3 +25,13 @@ while True:
         led.write_digital(0)  # Apagar o LED normal
 
     sleep(1000)  # Esperar 1 segundo
+
+while True:    # facemos que trabaja siempre
+       
+    if luz < 700:              # Si luz < que 700 es noche 
+        led.write_digital(1)   # Encedemos o LED
+
+    else:                     
+        led.write_digital(0)   # Apagamos o LED
+
+    sleep(1000)
