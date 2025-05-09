@@ -1,13 +1,13 @@
 """Programa 5 da fila 2 para a maqueta domótica. 
-Autor: Carla Tresandí Otero
+Autora: Carla Tresandí Otero
 Data: 05/05/2025"""
 
 from microbit import *
 import neopixel
 import music
 
-np = neopixel.NeoPixel(pin13, 2)    # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
-led = pin14                         # Define o pin 14 como "led"
+np = neopixel.NeoPixel(pin 13, 2)    # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
+led = pin 14                         # Define o pin 14 como "led"
 sensor = pin15.read_digital()                      # Define o pin 15 como "sensor"
 
 while True:                           # Bucle infinito
