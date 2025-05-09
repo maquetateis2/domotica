@@ -5,9 +5,9 @@ Data: 06/05/2025"""
 from microbit import *
 import neopixel
 
-np = neopixel,NeoPixel(pin 13, 2)  # 2 LED neopixel conectados ao pin 13
+np = neopixel.NeoPixel(pin 13, 2)  # 2 LED neopixel conectados ao pin 13
 
-led = pin 14 # LED branco conectado ao pin14
+led = pin 14 # LED branco conectado ao pin 14
 np.clear()
 while True:
     temperatura = temperature(1) # gardamos valor da temperatura
