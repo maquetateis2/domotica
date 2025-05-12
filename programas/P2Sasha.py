@@ -15,4 +15,4 @@ while True: # facemos que trabaja siempre
     else:                    # en otro caso 
         led.write_digital(0) # lo apagamos
 
-    sleep(1000)
+    sleep(100)
