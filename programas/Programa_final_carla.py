@@ -7,8 +7,10 @@ import neopixel
 
 np = neopixel.NeoPixel(pin13, 2)  
 
+led = pin14 # conectamos a pin
 rele = pin16 
 np.clear()
+
 while True:
     temp = temperature()
 
@@ -24,3 +26,14 @@ while True:
         rele.write_digital(0)  
 
     sleep(1000)  
+ 
+while True: 
+    luz = pin14.read_analog() 
+    
+    if luz < 700:             
+        led.write_digital(1)
+
+    else:                    
+        led.write_digital(0) 
+
+    sleep(100)
