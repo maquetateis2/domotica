@@ -94,9 +94,9 @@ while True :
             porta=0
 
     sleep(100)
+
+#Si el sensor de presencia detecta a alguien las las luces se ponen rojas y se dibuja una cara enfadada en la pantalla
    
-
-
 np = neopixel.NeoPixel(pin13, 2)    # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
 led = pin14                         # Define o pin 14 como "led"
 sensor = pin15.read_digital()       # Define o pin 15 como "sensor"
