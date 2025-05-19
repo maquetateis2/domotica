@@ -19,12 +19,12 @@ while True:
         np[0] = (0, 255, 0)  
         np[1] = (0, 255, 0)
         np.show()  
-        rele.write_digital(1)  
+        rele.write_digital(0)  
     else:
         np[0] = (255, 0, 0)  
         np[1] = (255, 0, 0) 
         np.show()  
-        rele.write_digital(0)  
+        rele.write_digital(1)  
 
     sleep(1000)  
 
