@@ -24,3 +24,8 @@ while True:
         led.write_digital(0)  # Apagar o LED normal
 
     sleep(1000)  # Esperar 1 segundo
+
+
+
+
+
