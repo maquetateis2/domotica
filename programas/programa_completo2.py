@@ -6,6 +6,9 @@ Data: 9/05/2025
 
 from microbit import *
 import neopixel
+import music
+
+#Si la temperaura está por encima de 20 se activa el ventilador y la luz cambia de color
 
 temp = temperature()
 np = neopixel.NeoPixel(pin13,2)
@@ -43,6 +46,7 @@ while True:
 
 sleep(1000)
 
+# Cuando es de noche las luces se encienden y cuando es de día se apagan
 
 led = pin14 # conectamos a pin
 
@@ -57,17 +61,24 @@ while True: # facemos que trabaja siempre
 
     sleep(1000)
 
-servo1 = pin2
- angulos = 0
- 
- while True :
-     if butto_b.is_pressed():
-         angulo +=10
-         servo.write_analog(angulo)
-         if angulo >= 90:
-             angulo = 0
-             servo write_analog(angulo)
+#Que suene el timbre cada vez que se presione el botón
+led = pin14
+c = 0
 
+while True:
+    if button_a.is_pressed():
+        for c in range(3):
+            c = c+1
+            led.write_digital(1)
+            sleep(500)
+            led.write_digital(0)
+            sleep(500)
+
+    for c in range(2):
+        music.play(music.RINGTONE)
+        sleep(1000)
+       
+#Que la puerta se abra cuando se presiona el botón, y se cierre cuando este no esté presionado
 
 pin2.set_analog_period(20) # Servo coenctado al pin 2
 pin2.write_analog(1) #La puerta comienza cerrada
@@ -83,6 +94,7 @@ while True :
             porta=0
 
     sleep(100)
+   
 
 
 np = neopixel.NeoPixel(pin13, 2)    # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
