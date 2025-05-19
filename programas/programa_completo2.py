@@ -44,7 +44,7 @@ while True: # facemos que trabaja siempre
 
     sleep(100)
 
-#P3 
+#P3  Programa que simula un timbre dunha casa
 from microbit import *
 import music
 
@@ -63,3 +63,6 @@ while True:
     for c in range(2):
         music.play(music.RINGTONE)
         sleep(1000)
+
+
+
