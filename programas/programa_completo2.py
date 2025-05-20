@@ -2,6 +2,10 @@
 Autores: Isabelly, Sasha, Sara Aguado, Leyla y Tresandí
 Data: 16/05/2025
 """
+# importamos librerias 
+from microbit import *
+import neopixel
+import music
 
 # --- Configuración de pines e variables ---
 np = neopixel.NeoPixel(pin13, 2)  # LED NeoPixel
