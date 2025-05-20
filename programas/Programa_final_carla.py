@@ -29,17 +29,7 @@ while True:
         rele.write_digital(0)  
 
     sleep(1000) 
-    
-while True:   
-    luz = pin1.read_analog()  
-    if luz < 700:            # si luz < que 700 es de noche 
-        led.write_digital(1)   # encedemos el LED
-
-    else:                    
-        led.write_digital(0)   # lo apagamos
-
-    sleep(100)
-while True: 
+       
     luz = pin14.read_analog() 
     
     if luz < 700:             
@@ -50,7 +40,6 @@ while True:
         
     sleep(100)
     
-while True:
     if button_a.is_pressed():
         for c in range(3):
             c = c+1
@@ -64,7 +53,6 @@ while True:
         sleep(1000)
         pin2.set_analog_period(20)    # Servo coenctado al pin 2
 
-while True :
     if button_b.is_pressed():   # Si el botón b esta presionado
         if porta == 0:
             pin2.write_analog(90)   # Puerta abierta a 90º
@@ -74,17 +62,16 @@ while True :
             porta = 0
 
     sleep(100)
-    
-while True:                           # Bucle infinito
+   
     sensor = pin15.read_digital()  # Define o pin 15 como "sensor"
 
-    if sensor == 1:                   # Se o sensor PÎR detecta movemento
+    if sensor == 1:  
+        display.show(Image.ANGRY)    # Mostra unha cara enfadada na pantalla  
         music.play(music.RINGTONE)       # Reproduce un ton de llamada
         sleep(500)     
         music.play(music.RINGTONE)
         
         for i in range(5):               # Repite 5 veceso seguinte bloque
-            display.show(Image.ANGRY)    # Mostra unha cara enfadada na pantalla   
             np[0] = (0, 255, 0)          # Acende o LED NeoPixel en vermello
             np[1] = (0, 255, 0)
             np.show()                    # Mostra o cambio do color no LED
@@ -100,64 +87,6 @@ while True:                           # Bucle infinito
     else:                             # Se non detecta movemento
         display.show(Image.HOUSE)     # Mostra unha imaxe dunha casa na pantalla
     sleep(100) 
-    
-while True: 
-    luz = pin14.read_analog() 
-    
-    if luz < 700:             
-        led.write_digital(1)
 
-    else:                    
-        led.write_digital(0) 
-        
-    sleep(100)
-    
-while True:
-    if button_a.is_pressed():
-        for c in range(3):
-            c = c+1
-            led.write_digital(1)
-            sleep(500)
-            led.write_digital(0)
-            sleep(500)
-
-    for c in range(2):
-        music.play(music.RINGTONE)
-        sleep(1000)
-        pin2.set_analog_period(20)    # Servo coenctado al pin 2
-
-while True :
-    if button_b.is_pressed():   # Si el botón b esta presionado
-        if porta == 0:
-            pin2.write_analog(90)   # Puerta abierta a 90º
-            porta = 1
-        else:
-            pin2.write_analog(1) 
-            porta = 0
-
-    sleep(100)
-while True:                           # Bucle infinito
-    sensor = pin15.read_digital()       # Define o pin 15 como "sensor"
-    if sensor == 1:                   # Se o sensor PÎR detecta movemento
-        music.play(music.RINGTONE)       # Reproduce un ton de llamada
-        sleep(500)     
-        music.play(music.RINGTONE)
-        
-        for i in range(5):               # Repite 5 veceso seguinte bloque
-            display.show(Image.ANGRY)    # Mostra unha cara enfadada na pantalla   
-            np[0] = (0, 255, 0)          # Acende o LED NeoPixel en vermello
-            np[1] = (0, 255, 0)
-            np.show()                    # Mostra o cambio do color no LED
-            led.write_digital(1)         # Acende o LED branco conectadoao pin 14
-            sleep(500)                   # Espera 500 milisegundos
-            np[0] = (0, 0, 0)            # Apaga o LED NeoPixel
-            np[1] = (0, 0, 0)
-            np.show()                    # Actualiza o estado do LED
-            led.write_digital(0)         # Apaga o LED branco
-            display.clear()              # Borra o que se mostra na pantalla
-            sleep(500)
-        
-    else:                             # Se non detecta movemento
-        display.show(Image.HOUSE)     # Mostra unha imaxe dunha casa na pantalla
-    sleep(100) 
+  
        
