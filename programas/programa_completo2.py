@@ -18,7 +18,7 @@ np.clear()                  # Apagamos todos os LEDs NeoPixel ao comezo
 
 while True:
 
-# --- P1: Medición de temperatura ---
+# P1: Medición de temperatura 
     temp = temperature()   # Lemos a temperatura
     
     if temp > 20:
@@ -32,7 +32,7 @@ while True:
         np.show()             # Actualizamos os LEDs
         rele.write_digital(1) # Acendemos o relé 
 
-# --- P2: Control de luz ambiente ---
+# P2: Control de luz ambiente 
     luz = pin1.read_analog()  # Lemos a luz (sensor LDR)
     
     if luz < 700:             # Se hai pouca luz (de noite)
@@ -40,7 +40,7 @@ while True:
     else:                     # Se hai luz suficiente (de día)
         led.write_digital(0)  # Apagamos o LED branco
 
-# --- P3: Timbre da casa ---
+# P3: Timbre da casa 
     if button_a.is_pressed():        # Se se preme o botón A
         for c in range(3):           # Parpadea o LED 3 veces
             led.write_digital(1)
@@ -52,7 +52,7 @@ while True:
             music.play(music.RINGTONE)
             sleep(1000)
 
-# --- P4: Control da porta con servo ---
+# P4: Control da porta con servo 
     if button_b.is_pressed():        # Se se preme o botón B
         if porta == 0:               # Se a porta está pechada
             pin2.write_analog(90)    # Abrímosla
@@ -62,7 +62,7 @@ while True:
             porta = 0                # Actualizamos o estado
             sleep(500)               # Esperamos un pouco para evitar rebotes do botón
 
-# --- P5: Alarma de movemento con sensor PIR ---
+# P5: Alarma de movemento con sensor PIR 
     sensor = pin15.read_digital()     # Lemos o estado do sensor (PIR)
     
     if sensor == 1:                   # Se detecta movemento
