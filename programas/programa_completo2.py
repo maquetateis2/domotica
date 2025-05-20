@@ -6,6 +6,7 @@ from microbit import *
 import music
 import neopixel
 
+
 #P1 Medicion de temperatura
 
 np = neopixel.NeoPixel(pin13, 2)  
