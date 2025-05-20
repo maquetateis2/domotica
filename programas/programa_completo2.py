@@ -2,95 +2,80 @@
 Autores: Isabelly, Sasha, Sara Aguado, Leyla y Tresandí
 Data: 16/05/2025
 """
-#Programa 1 
 
- # importamos librerias 
-from microbit import *
-import neopixel
-import music
+# --- Configuración de pines e variables ---
+np = neopixel.NeoPixel(pin13, 2)  # LED NeoPixel
+rele = pin16                      # Relé
+led = pin14                       # LED branco
+porta = 0                         # Estado da porta
+pin2.set_analog_period(20)        # Servo motor
+pin2.write_analog(26)             # Pechamos a porta inicialmente
 
-
-np = neopixel.NeoPixel(pin13, 2)  
-rele = pin16 
-led = pin14 # conectamos a pin
-c = 0
-pin2.set_analog_period(20) # Servo coenctado al pin 2
-pin2.write_analog(1) #La puerta comienza cerrada
-porta = 0 
+np.clear() # Apagamos todos os LEDs NeoPixel ao comezo
+np.show()
  
-
-np.clear()
 while True:
-    temp = temperature()
+ 
+    # 1. Control de temperatura: luces e relé
+
+    temp = temperature()  # Le a temperatura ambiente en ºC
 
     if temp > 20:
+        # Se a temperatura é maior de 20ºC, acendemos LEDs verdes e activamos o relé
         np[0] = (0, 255, 0)  
         np[1] = (0, 255, 0)
-        np.show()  
-        rele.write_digital(1)  
+        rele.write_digital(1)  # Activamos o relé (por exemplo, un ventilador)
     else:
-        np[0] = (255, 0, 0)  
-        np[1] = (255, 0, 0) 
-        np.show()  
-        rele.write_digital(0)  
+        # Se a temperatura é 20ºC ou menor, acendemos LEDs vermellos e apagamos o relé
+        np[0] = (255, 0, 0)
+        np[1] = (255, 0, 0)
+        rele.write_digital(0)
 
-    sleep(1000)  
-    
-  
-#Programa 2: Control de luz en la casa
-while True: # facemos que trabaja siempre
-    luz = pin1.read_analog() # leemos el balor
+    np.show()  # Actualizamos os LEDs NeoPixel
 
-    if luz < 700:            # si luz < que 700 es noche 
-        led.write_digital(1) # y Led encendemos
+    # 2. Control de luz segundo a luminosidade
+    luz = pin1.read_analog()  # Le a luminosidade do sensor conectado ao pin 1
 
-    else:                    # en otro caso 
-        led.write_digital(0) # lo apagamos
+    if luz < 700:             # Se a luminosidade é baixa (é de noite)
+        led.write_digital(1)  # Acende o LED branco
+    else:                     # Se hai luz suficiente
+        led.write_digital(0)  # Apaga o LED branco
 
-    sleep(100)
-
-# Programa3: que simula un timbre dunha casa
-while True:
-    if button_a.is_pressed():
-        for c in range(3):
-            c = c+1
+    # 3. Simulación de timbre de casa co botón A
+    if button_a.is_pressed():  # Se se preme o botón A
+        for _ in range(3):     # Repite 3 veces o parpadeo do LED
             led.write_digital(1)
             sleep(500)
             led.write_digital(0)
             sleep(500)
 
-    for c in range(2):
-        music.play(music.RINGTONE)
-        sleep(1000)
+        for _ in range(2):     # Reproduce o ton de timbre dúas veces
+            music.play(music.RINGTONE)
+            sleep(1000)
 
-#
- 
-while True :
-    if button_b.is_pressed(): #Si el botón b esta presionado
-        if porta == 0:
-            pin2.write_analog(90) #Puerta abierta a 90º
-            porta=1
-        else:
-            pin2.write_analog(1) 
-            porta=0
+    # 4. Apertura e peche da porta co botón B
+    if button_b.is_pressed():     # Se se preme o botón B
+        if porta == 0:            # Se a porta está pechada
+            pin2.write_analog(77) # Abrimos a porta a ~90º
+            porta = 1
+        else:                     # Se está aberta
+            pin2.write_analog(26) # Pechamos a porta (~0º)
+            porta = 0
+        sleep(500)  # Pequena pausa para evitar rebotes no botón
 
-    sleep(100)
-
-
-#
-while True:                           # Bucle infinito
+    # Programa 5: Alarma con sensor de movemento PIR
     sensor = pin15.read_digital()       # Define o pin 15 como "sensor"
-    if sensor == 1:                   # Se o sensor PÎR detecta movemento
-        music.play(music.RINGTONE)       # Reproduce un ton de llamada
+    if sensor == 1:                   # Se o sensor PIR detecta movemento
+        music.play(music.RINGTONE)       # Reproduce un ton de chamada
         sleep(500)     
         music.play(music.RINGTONE)
         
-        for i in range(5):               # Repite 5 veceso seguinte bloque
+        for i in range(5):               # Repite 5 veces o seguinte bloque
             display.show(Image.ANGRY)    # Mostra unha cara enfadada na pantalla da microbit  
-            np[0] = (0, 255, 0)          # Acende o LED NeoPixel en vermello
-            np[1] = (0, 255, 0)
+            np[0] = (255, 0, 0)          # Acende o LED NeoPixel en vermello
+            np[1] = (255, 0, 0)
             np.show()                    # Mostra o cambio do color no LED
-            led.write_digital(1)         # Acende o LED branco conectadoao pin 14
+            led.write_digital(1)         # Acende o LED branco conectado ao pin 14
             sleep(500)                   # Espera 500 milisegundos
             np[0] = (0, 0, 0)            # Apaga o LED NeoPixel
             np[1] = (0, 0, 0)
@@ -101,9 +86,6 @@ while True:                           # Bucle infinito
         
     else:                             # Se non detecta movemento
         display.show(Image.HOUSE)     # Mostra unha imaxe dunha casa na pantalla
-    sleep(100) 
-      
-  
 
 
     
