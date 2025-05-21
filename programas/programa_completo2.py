@@ -13,7 +13,10 @@ import music
 temp = temperature()
 np = neopixel.NeoPixel(pin13,2)
 np.clear()
-while True:
+luz = pin1.read_analog()
+
+while True: 
+   
    if temp> 24:
      np[0]= (0, 255, 0)
      np[1]= (0, 255, 0)
@@ -50,7 +53,7 @@ sleep(1000)
 
 led = pin14 # conectamos a pin
 
-while True: # facemos que trabaja siempre
+
     luz = pin1.read_analog() # leemos el balor
 
     if luz < 700:            # si luz < que 700 es noche 
@@ -64,9 +67,7 @@ while True: # facemos que trabaja siempre
 #Que suene el timbre cada vez que se presione el botón
 led = pin14
 c = 0
-
-while True:
-    if button_a.is_pressed():
+   if button_a.is_pressed():
         for c in range(3):
             c = c+1
             led.write_digital(1)
@@ -84,7 +85,7 @@ pin2.set_analog_period(20) # Servo coenctado al pin 2
 pin2.write_analog(1) #La puerta comienza cerrada
 porta = 0 
  
-while True :
+
     if button_b.is_pressed(): #Si el botón b esta presionado
         if porta == 0:
             pin2.write_analog(90) #Puerta abierta a 90º
@@ -97,11 +98,11 @@ while True :
 
 #Si el sensor de presencia detecta a alguien las las luces se ponen rojas y se dibuja una cara enfadada en la pantalla
    
-np = neopixel.NeoPixel(pin13, 2)    # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
+np = neopixel.NeoPixel(pin13, 2)   # Crea unha tira de 1 LED NeoPixel conectado ao pin 13
 led = pin14                         # Define o pin 14 como "led"
 sensor = pin15.read_digital()       # Define o pin 15 como "sensor"
 
-while True:                           # Bucle infinito
+                           # Bucle infinito
     if sensor == 1:                   # Se o sensor PÎR detecta movemento
         music.play(music.RINGTONE)       # Reproduce un ton de llamada
         sleep(500)     
@@ -123,4 +124,4 @@ while True:                           # Bucle infinito
         
     else:                             # Se non detecta movemento
         display.show(Image.HOUSE)     # Mostra unha imaxe dunha casa na pantalla
-    sleep(100) 
+sleep(100) 
