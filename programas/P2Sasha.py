@@ -1,4 +1,4 @@
-"""Programa 2: Control de luz en la casa
+"""Programa 2: Control de luz ambiente 
 Autor: Dementiev Oleksasndr
 Data: 30/04/2025"""
 
