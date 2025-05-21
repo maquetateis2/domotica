@@ -48,18 +48,20 @@ while True:
             led.write_digital(0)
             sleep(500)
 
-        for c in range(2):
-            music.play(music.RINGTONE)
-            sleep(1000)
-  pin2.set_analog_period(20)    # Servo coenctado al pin 2
+    for c in range(2):
+        music.play(music.RINGTONE)
+        sleep(1000)
+        
+pin2.set_analog_period(20)     # Servo coenctado al pin 2
+pin2.write_analog(1)     # La puerta comienza cerrada
 
-    if button_b.is_pressed():   # Si el botón b esta presionado
-         if porta == 0:
-             pin2.write_analog(90)   # Puerta abierta a 90º
-             porta = 1
-         else:
-             pin2.write_analog(1) 
-             porta = 0
+if button_b.is_pressed():     # Si el botón b esta presionado
+    if porta == 0:
+        pin2.write_analog(90)     # Puerta abierta a 90º
+        porta = 1
+    else:
+        pin2.write_analog(1) 
+        porta = 0
 
     sleep(100)
    
@@ -87,6 +89,7 @@ while True:
     else:                             # Se non detecta movemento
         display.show(Image.HOUSE)     # Mostra unha imaxe dunha casa na pantalla
     sleep(100) 
+
 
   
        
