@@ -9,6 +9,8 @@ import music
 np = neopixel.NeoPixel(pin13, 2)  
 np.clear()
 pin2.write_analog(1)   # La puerta comienza cerrada
+pin2.set_analog_period(20)     # Servo coenctado al pin 2
+sensor = pin15.read_digital()  # Define o pin 15 como "sensor"
 led = pin14   # conectamos a pin
 rele = pin16 
 c = 0
@@ -28,11 +30,10 @@ while True:
         np.show()  
         rele.write_digital(0)  
 
-    sleep(1000) 
        
-    luz = pin14.read_analog() 
+    led = pin14.read_analog() 
     
-    if luz < 700:             
+    if led < 700:             
         led.write_digital(1)
 
     else:                    
@@ -51,9 +52,6 @@ while True:
     for c in range(2):
         music.play(music.RINGTONE)
         sleep(1000)
-        
-pin2.set_analog_period(20)     # Servo coenctado al pin 2
-pin2.write_analog(1)     # La puerta comienza cerrada
 
 if button_b.is_pressed():     # Si el botón b esta presionado
     if porta == 0:
@@ -62,10 +60,6 @@ if button_b.is_pressed():     # Si el botón b esta presionado
     else:
         pin2.write_analog(1) 
         porta = 0
-
-    sleep(100)
-   
-    sensor = pin15.read_digital()  # Define o pin 15 como "sensor"
 
     if sensor == 1:  
         display.show(Image.ANGRY)    # Mostra unha cara enfadada na pantalla  
