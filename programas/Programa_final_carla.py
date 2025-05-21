@@ -7,7 +7,7 @@ import neopixel
 import music
 
 np = neopixel.NeoPixel(pin13, 2)  
-
+np.clear()
 pin2.write_analog(1)   # La puerta comienza cerrada
 led = pin14   # conectamos a pin
 rele = pin16 
