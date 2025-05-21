@@ -1,4 +1,4 @@
-"""Programa completo da fila 1 para a maqueta domótica. 
+"""Programa completo da fila 2 para a maqueta domótica. 
 Autores: Isabelly, Sasha, Leyla, Sara.A, Carla.
 Data: 9/05/2025
 """
